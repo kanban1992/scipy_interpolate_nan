@@ -28,7 +28,7 @@ histogram = rfile.Get(hist_name)
 
 N=histogram.GetXaxis().GetNbins() * histogram.GetYaxis().GetNbins() #number of points in full_set
 
-x=np.ndarray(shape=(N,2))
+x=np.ndarray(shape=(N,2))#full set
 y=np.ndarray(shape=(N,1))
 
 i=0
@@ -50,11 +50,11 @@ N_training = N-N_validation
 full_indices=range(0,N)
 
 random.shuffle(full_indices)
-
+#determine which indeices of full set will be in training set and validation set
 training_indices=full_indices[:N_training]#indices for training set
 validation_indices=full_indices[N_training:N]#indices for validation set
 
-x_training=np.ndarray(shape=(N_training,2))
+x_training=np.ndarray(shape=(N_training,2))#training set
 y_training=np.ndarray(shape=(N_training,1))
 
 for i in range(0,N_training):
@@ -63,7 +63,7 @@ for i in range(0,N_training):
   y_training[i][0]=y[training_indices[i]][0]	    
 
 
-x_validation=np.ndarray(shape=(N_validation,2))
+x_validation=np.ndarray(shape=(N_validation,2))# validation set
 y_validation=np.ndarray(shape=(N_validation,1))
 
 for i in range(0,N_validation):
